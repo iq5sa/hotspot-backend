@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AdsController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get("/ads",function (){
-
-    return response()->json(
-        \App\Ad::all()
-    );
-
-});
+Route::get("/ads",[AdsController::class,"show"]);
+Route::get("/ads/onclick",[AdsController::class,"saveClicks"]);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect("/","/admin");
+Route::get("/client/login",[ClientController::class,"loginIndex"]);
+Route::post("/client/login/submit",[ClientController::class,"loginSubmit"])->name("client.login.submit");
 
 
 
